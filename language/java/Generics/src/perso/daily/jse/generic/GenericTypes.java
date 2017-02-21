@@ -25,7 +25,7 @@ class Box {
  * @param <T>
  *            the type of the value being boxed
  */
-class BoxG<T> {
+class BoxGenericTypes<T> {
 	// T stands for "Type"
 	private T t;
 
@@ -70,16 +70,16 @@ public class GenericTypes {
 
 	public static void main(String[] args) {
 		// Integer, type argument
-		BoxG<Integer> integerBox;
-		BoxG<Integer> integerBox2 = new BoxG<Integer>();
-		BoxG<Integer> integerBox3 = new BoxG<>();
+		BoxGenericTypes<Integer> integerBox;
+		BoxGenericTypes<Integer> integerBox2 = new BoxGenericTypes<Integer>();
+		BoxGenericTypes<Integer> integerBox3 = new BoxGenericTypes<>();
 
 		OrderedPair<String, Integer> p1 = new OrderedPair<>("Even", 8);
 		System.out.println(p1.getKey());
 		System.out.println(p1.getValue());
 		OrderedPair<String, String> p2 = new OrderedPair<>("hello", "world");
 
-		OrderedPair<String, BoxG<Integer>> p = new OrderedPair<>("primes", new BoxG<Integer>());
+		OrderedPair<String, BoxGenericTypes<Integer>> p = new OrderedPair<>("primes", new BoxGenericTypes<Integer>());
 		System.out.println(p.getKey());
 		System.out.println(p.getValue());
 	}
