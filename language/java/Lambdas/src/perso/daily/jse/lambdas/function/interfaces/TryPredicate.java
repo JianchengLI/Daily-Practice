@@ -1,4 +1,4 @@
-package perso.daily.jse.lambdas;
+package perso.daily.jse.lambdas.function.interfaces;
 
 import java.util.ArrayList;
 import java.util.Arrays;
