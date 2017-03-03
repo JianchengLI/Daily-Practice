@@ -3,7 +3,7 @@ package perso.daily.algorithms.basic;
 
 public class InsertionSort {
 	public static void main(String[] args) {
-		int[] a1 = {5,2,4,6,1,3};
+		int[] a1 = { 5, 2, 4, 7, 1, 3, 2, 6};
         int[] a2 = a1.clone();
         
         bubble_sort(a1);
