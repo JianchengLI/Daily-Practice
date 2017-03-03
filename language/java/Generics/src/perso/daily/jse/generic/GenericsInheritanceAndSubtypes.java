@@ -1,5 +1,8 @@
 package perso.daily.jse.generic;
 
+class BoxGenericTypes2<T extends Number>{
+	
+}
 public class GenericsInheritanceAndSubtypes {
 
 	public static void boxTest(BoxGenericTypes<Number> n) { 
@@ -24,6 +27,8 @@ public class GenericsInheritanceAndSubtypes {
 		BoxGenericTypes<String> box4 = new BoxGenericTypes<>();
 		box4.set("apple");
 		
+		// BoxGenericTypes<Number> box_type1 = new BoxGenericTypes<Integer>(); // We c'ant do this
+
 		// boxTest(box2); Error
 		// boxTest(box3); Error
 		

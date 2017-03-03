@@ -20,7 +20,6 @@ class BoxBoundedTypes<T> {
         System.out.println("T: " + t.getClass().getName());
         System.out.println("U: " + u.getClass().getName());
     }
-    
 }
 
 

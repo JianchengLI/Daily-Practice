@@ -31,6 +31,10 @@ public class TiredOfNullPointerExceptions {
 		 * A single-value container that either contains a value or doesn't
 		 */
 		Optional<Computer> computer = Optional.ofNullable(_computer);
+		
+		computer.map(Computer::getSoundCard); // return Optional<Optional<Soundcard>>
+		computer.flatMap(Computer::getSoundCard); // return <Optional<Soundcard>
+		
 		version = computer.flatMap(Computer::getSoundCard)
 						  .flatMap(Soundcard::getUsb)
 						  .map(USB::getVersion)
