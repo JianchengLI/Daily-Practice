@@ -1,16 +1,5 @@
 package perso.daily.jse.generic;
 
-class Box {
-	private Object object;
-
-	public void set(Object object) {
-		this.object = object;
-	}
-
-	public Object get() {
-		return object;
-	}
-}
 
 /**
  * A generic class is defined with the following format: class name<T1, T2, ...,
