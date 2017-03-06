@@ -5,6 +5,7 @@ class BoxGenericTypes2<T extends Number>{
 }
 public class GenericsInheritanceAndSubtypes {
 
+	// It's not a Generic Method, Signature is fixed
 	public static void boxTest(BoxGenericTypes<Number> n) { 
 		System.out.println(n.get());
 	}
