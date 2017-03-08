@@ -2,15 +2,13 @@ package perso.daily.dp.decorator.starbuzz;
 
 public class HouseBlend extends Beverage {
 
-	public HouseBlend(String description) {
-		super(description);
-		// TODO Auto-generated constructor stub
+	public HouseBlend() {
+		description = "House Blend Coffee";
 	}
 
 	@Override
-	public void cost() {
-		// TODO Auto-generated method stub
-		super.cost();
+	public double cost() {
+		return .89;
 	}
 
 }

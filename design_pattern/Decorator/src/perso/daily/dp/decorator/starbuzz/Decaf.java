@@ -2,15 +2,14 @@ package perso.daily.dp.decorator.starbuzz;
 
 public class Decaf extends Beverage {
 
-	public Decaf(String description) {
-		super(description);
-		// TODO Auto-generated constructor stub
+	public Decaf() {
+		description = "Decaf Coffee";
 	}
 
 	@Override
-	public void cost() {
-		// TODO Auto-generated method stub
-		super.cost();
+	public double cost() {
+		return 0.99;
 	}
+
 	
 }

@@ -1,16 +1,21 @@
 package perso.daily.dp.decorator.starbuzz;
 
-public class Beverage {
-	private String description;
+public abstract class Beverage {
 
-	public Beverage(String description) {
-		super();
-		this.description = description;
+	protected String description = "Unknown Beverage";
+	protected Size size = Size.UNKNOWN;
+	
+	public Size getSize() {
+		return size;
+	}
+
+	public void setSize(Size size) {
+		this.size = size;
 	}
 
 	public String getDescription() {
 		return description;
 	}
 	
-	public void cost(){};
+	public abstract double cost();
 }

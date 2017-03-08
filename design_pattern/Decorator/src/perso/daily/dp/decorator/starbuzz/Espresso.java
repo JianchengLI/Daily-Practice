@@ -2,15 +2,14 @@ package perso.daily.dp.decorator.starbuzz;
 
 public class Espresso extends Beverage {
 
-	public Espresso(String description) {
-		super(description);
-		// TODO Auto-generated constructor stub
+	public Espresso() {
+		description = "Espresso";
 	}
 
 	@Override
-	public void cost() {
-		// TODO Auto-generated method stub
-		super.cost();
+	public double cost() {
+		return 1.99;
 	}
+
 
 }
