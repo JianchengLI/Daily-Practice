@@ -1,12 +1,15 @@
 package perso.daily.algorithms.dc;
-
+/**
+ * Divide Conquer 
+ * @author Jiancheng
+ * T(n) = n*log n
+ */
 public class MaxSubArrayDC {
 
 	public static void main(String[] args) {
 		int[] A = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7};
 		
-		MaxSubArray maxSubArray = FIND_MAXIMUM_SUB_ARRAY(A, 0, A.length-1);
-		maxSubArray.print();
+		FIND_MAXIMUM_SUB_ARRAY(A, 0, A.length-1).print();
 	}
 
 	public static MaxSubArray FIND_MAXIMUM_SUB_ARRAY(int[] A, int low, int high) {
@@ -20,12 +23,15 @@ public class MaxSubArrayDC {
 			MaxSubArray rightMaxSubArray = FIND_MAXIMUM_SUB_ARRAY(A, mid+1, high);
 			MaxSubArray crossMaxSubArray = FIND_MAX_CROSSING_SUB_ARRAY(A, low, mid, high);
 			
-			if(leftMaxSubArray.getSum() > rightMaxSubArray.getSum() && leftMaxSubArray.getSum() > crossMaxSubArray.getSum())
+			if(leftMaxSubArray.getSum() > rightMaxSubArray.getSum() && leftMaxSubArray.getSum() > crossMaxSubArray.getSum()){
 				return leftMaxSubArray;
-			else if(rightMaxSubArray.getSum() > leftMaxSubArray.getSum() && rightMaxSubArray.getSum() > crossMaxSubArray.getSum())
+			}
+			else if(rightMaxSubArray.getSum() > leftMaxSubArray.getSum() && rightMaxSubArray.getSum() > crossMaxSubArray.getSum()){
 				return rightMaxSubArray;
-			else 
+			}
+			else{
 				return crossMaxSubArray;
+			}
 		}
 	}
 
