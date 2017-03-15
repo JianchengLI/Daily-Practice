@@ -6,13 +6,13 @@ public class ChicagoPizzaFactory extends SimplePizzaFactory {
 	public Pizza createPizza(PizzaType type) {
 		Pizza pizza = null;
 		if(type.equals(PizzaType.Cheese)){
-			pizza = new CheesePizza();
+			pizza = new ChicagoStyleCheesePizza();
 		}else if (type.equals(PizzaType.Pepperoni)) {
-			pizza = new PepperoniPizza();
+			pizza = new ChicagoStylePepperoniPizza();
 		}else if (type.equals(PizzaType.Clam)) {
-			pizza = new PepperoniPizza();
+			pizza = new ChicagoStylePepperoniPizza();
 		}else if (type.equals(PizzaType.Veggie)) {
-			pizza = new VeggiePizza();
+			pizza = new ChicagoStyleVeggiePizza();
 		}
 		return pizza;
 	}
