@@ -14,6 +14,5 @@ public class PizzaStore {
 		pizza.cut();
 		pizza.box();
 		return pizza;
-		
 	}
 }
