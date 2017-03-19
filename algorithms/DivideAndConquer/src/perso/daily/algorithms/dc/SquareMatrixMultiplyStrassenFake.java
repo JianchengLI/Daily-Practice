@@ -1,6 +1,6 @@
 package perso.daily.algorithms.dc;
 
-public class SquareMatrixMultiplyStrassen {
+public class SquareMatrixMultiplyStrassenFake {
 
 	public static int counter = 0;
 	
