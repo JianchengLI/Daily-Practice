@@ -13,7 +13,8 @@ public class SquareMatrixMultiplyStrassen {
 				     {1,2,3,4},
 				     {1,2,3,4}
 				    };
-		int[][] C = StrassenMatrixMult(A,B);
+		
+ 		int[][] C = StrassenMatrixMult(A,B); 
 		
 		for (int i = 0; i < C.length; i++) {
 			System.out.println("Row " + i + " : ");
@@ -26,14 +27,17 @@ public class SquareMatrixMultiplyStrassen {
 
 	public static int[][] MatrixMult(int[][] A, int[][] B){
 		int[][] C = new int[A.length][];
+		int count = 0;
 		for (int i = 0; i < A.length; i++) {
 			C[i] = new int[A[0].length];
 			for (int j = 0; j < B.length; j++) {
 				for (int k = 0; k < B.length; k++) {
 					C[i][j] += A[i][k] * B[k][j];
+					count ++;
 				}
 			}
 		}
+		System.out.println("MatrixMult : " + count);
 		return C;
 	}
 	
@@ -70,11 +74,11 @@ public class SquareMatrixMultiplyStrassen {
 					StrassenMatrixMult(PotionMatrix(A, Portion.RIGHT_TOP),PotionMatrix(B, Portion.RIGHT_BOT))
 				),
 				MatrixPlus(
-					StrassenMatrixMult(PotionMatrix(A, Portion.RIGHT_TOP),PotionMatrix(B, Portion.LEFT_TOP)), 
+					StrassenMatrixMult(PotionMatrix(A, Portion.LEFT_BOT),PotionMatrix(B, Portion.LEFT_TOP)), 
 					StrassenMatrixMult(PotionMatrix(A, Portion.RIGHT_BOT),PotionMatrix(B, Portion.LEFT_BOT))
 				),
 				MatrixPlus( 
-					StrassenMatrixMult(PotionMatrix(A, Portion.RIGHT_TOP),PotionMatrix(B, Portion.RIGHT_TOP)), 
+					StrassenMatrixMult(PotionMatrix(A, Portion.LEFT_BOT),PotionMatrix(B, Portion.RIGHT_TOP)), 
 					StrassenMatrixMult(PotionMatrix(A, Portion.RIGHT_BOT),PotionMatrix(B, Portion.RIGHT_BOT))
 				)
 			);
