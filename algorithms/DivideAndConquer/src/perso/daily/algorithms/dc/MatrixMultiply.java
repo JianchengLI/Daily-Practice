@@ -1,6 +1,6 @@
 package perso.daily.algorithms.dc;
 
-public class SquareMatrixMultiply {
+public class MatrixMultiply {
 
 	public static void main(String[] args) {
 		int[][] A = {{1,2,3},{1,2,3},{1,2,3}};

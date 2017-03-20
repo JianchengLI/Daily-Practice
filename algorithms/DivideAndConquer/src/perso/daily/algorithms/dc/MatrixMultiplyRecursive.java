@@ -1,6 +1,6 @@
 package perso.daily.algorithms.dc;
 
-public class SquareMatrixMultiplyStrassen {
+public class MatrixMultiplyRecursive {
 
 	public static int counter = 0;
 	
@@ -16,7 +16,7 @@ public class SquareMatrixMultiplyStrassen {
 				     {1,2,3,4}
 				    };
 		
- 		int[][] C = StrassenMatrixMult(A,B); 
+ 		int[][] C = MatrixMultRecursive(A,B); 
 		System.out.println(counter);
 		
 		for (int i = 0; i < C.length; i++) {
@@ -27,7 +27,41 @@ public class SquareMatrixMultiplyStrassen {
 			}
 		}
 	}
-
+	
+	/**
+	 * Matrix A, B has same Size
+	 * @param A
+	 * @param B
+	 * @return
+	 */
+	public static int[][] MatrixMultRecursive(int[][] A, int[][] B){
+		int n = A.length; 
+		int[][] C = new int[n][n];
+		if (n == 1) {
+			C[0][0] =A[0][0] * B[0][0];
+		}else{
+			int[][] A11 = PotionMatrix(A, Portion.LEFT_TOP);
+			int[][] A12 = PotionMatrix(A, Portion.RIGHT_TOP);
+			int[][] A21 = PotionMatrix(A, Portion.LEFT_BOT);
+			int[][] A22 = PotionMatrix(A, Portion.RIGHT_BOT);
+			
+			int[][] B11 = PotionMatrix(B, Portion.LEFT_TOP);
+			int[][] B12 = PotionMatrix(B, Portion.RIGHT_TOP);
+			int[][] B21 = PotionMatrix(B, Portion.LEFT_BOT);
+			int[][] B22 = PotionMatrix(B, Portion.RIGHT_BOT);
+			
+			CombineQuarterMatrix( C,
+				MatrixPlus( MatrixMultRecursive(A11,B11), MatrixMultRecursive(A12,B21)),
+				MatrixPlus( MatrixMultRecursive(A11,B12), MatrixMultRecursive(A12,B22)),
+				MatrixPlus( MatrixMultRecursive(A21,B11), MatrixMultRecursive(A22,B21)),
+				MatrixPlus( MatrixMultRecursive(A21,B12), MatrixMultRecursive(A22,B22))
+			);
+		}
+		return C;
+		
+	}
+	enum Portion {LEFT_TOP, LEFT_BOT, RIGHT_TOP, RIGHT_BOT}
+	
 	public static int[][] MatrixMult(int[][] A, int[][] B){
 		int[][] C = new int[A.length][];
 		for (int i = 0; i < A.length; i++) {
@@ -52,42 +86,6 @@ public class SquareMatrixMultiplyStrassen {
 		}
 		return C;
 	}
-	
-	/**
-	 * Matrix A, B has same Size
-	 * @param A
-	 * @param B
-	 * @return
-	 */
-	public static int[][] StrassenMatrixMult(int[][] A, int[][] B){
-		int n = A.length; 
-		int[][] C = new int[n][n];
-		if (n == 1) {
-			C[0][0] =A[0][0] * B[0][0];
-		}else{
-			CombineQuarterMatrix( C,
-				MatrixPlus( // A11 * B11 + A12 * B21
-					StrassenMatrixMult(PotionMatrix(A, Portion.LEFT_TOP),PotionMatrix(B, Portion.LEFT_TOP)), 
-					StrassenMatrixMult(PotionMatrix(A, Portion.RIGHT_TOP),PotionMatrix(B, Portion.LEFT_BOT))
-				),
-				MatrixPlus( 
-					StrassenMatrixMult(PotionMatrix(A, Portion.LEFT_TOP),PotionMatrix(B, Portion.RIGHT_TOP)), 
-					StrassenMatrixMult(PotionMatrix(A, Portion.RIGHT_TOP),PotionMatrix(B, Portion.RIGHT_BOT))
-				),
-				MatrixPlus(
-					StrassenMatrixMult(PotionMatrix(A, Portion.LEFT_BOT),PotionMatrix(B, Portion.LEFT_TOP)), 
-					StrassenMatrixMult(PotionMatrix(A, Portion.RIGHT_BOT),PotionMatrix(B, Portion.LEFT_BOT))
-				),
-				MatrixPlus( 
-					StrassenMatrixMult(PotionMatrix(A, Portion.LEFT_BOT),PotionMatrix(B, Portion.RIGHT_TOP)), 
-					StrassenMatrixMult(PotionMatrix(A, Portion.RIGHT_BOT),PotionMatrix(B, Portion.RIGHT_BOT))
-				)
-			);
-		}
-		return C;
-		
-	}
-	enum Portion {LEFT_TOP, LEFT_BOT, RIGHT_TOP, RIGHT_BOT}
 	
 	/**
 	 * Matrix must be NxN
@@ -134,7 +132,6 @@ public class SquareMatrixMultiplyStrassen {
 		int[][] A = new int[n][n];
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				counter ++;
 				A[i][j] = matrix[i+offset_x][j+offset_y];
 			}
 		}
