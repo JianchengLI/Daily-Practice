@@ -1,6 +1,12 @@
-package perso.daily.dp.factory.simple;
+package perso.daily.dp.factory_method;
 
-public class NYPizzaFactory extends SimplePizzaFactory{
+import perso.daily.dp.factory.simple.NYStyleCheesePizza;
+import perso.daily.dp.factory.simple.NYStylePepperoniPizza;
+import perso.daily.dp.factory.simple.NYStyleVeggiePizza;
+import perso.daily.dp.factory.simple.Pizza;
+import perso.daily.dp.factory.simple.PizzaType;
+
+public class NYPizzaStore extends PizzaStore {
 
 	@Override
 	public Pizza createPizza(PizzaType type) {
@@ -16,4 +22,5 @@ public class NYPizzaFactory extends SimplePizzaFactory{
 		}
 		return pizza;
 	}
+
 }
