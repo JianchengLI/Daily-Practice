@@ -5,7 +5,7 @@ public class SingletonDoubleChecked {
 	private SingletonDoubleChecked(){}
 	
 	/**
-	 * Problem : If always getInstance, BAD PERFORMANCE !!
+	 * Problem : >= Java 1.5 So ?... No problems
 	 * @return
 	 */
 	public static  SingletonDoubleChecked getInstance(){

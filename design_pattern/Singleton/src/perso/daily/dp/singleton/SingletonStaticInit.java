@@ -5,7 +5,7 @@ public class SingletonStaticInit {
 	private SingletonStaticInit(){}
 	
 	/**
-	 * Problem : Eagerly
+	 * Problem : Eagerly, If its a big Instance, RESOURCE PB, Created so early and always here !!
 	 * @return
 	 */
 	public static SingletonStaticInit getInstance(){
