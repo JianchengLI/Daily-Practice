@@ -1,4 +1,6 @@
 package perso.daily.algorithms.dc;
+
+
 /**
  * Divide Conquer 
  * @author Jiancheng
@@ -10,7 +12,10 @@ public class MaxSubArrayDC {
 		int[] A = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7};
 		
 		FIND_MAXIMUM_SUB_ARRAY(A, 0, A.length-1).print();
+		System.out.println("MaxSubArray DC: " + counter);
 	}
+	
+	private static int counter = 0;
 
 	public static MaxSubArray FIND_MAXIMUM_SUB_ARRAY(int[] A, int low, int high) {
 		int mid = (low + high) / 2;
@@ -19,7 +24,7 @@ public class MaxSubArrayDC {
 		}
 		else{
 			
-			MaxSubArray leftMaxSubArray = FIND_MAXIMUM_SUB_ARRAY(A, low, mid);
+			MaxSubArray leftMaxSubArray =  FIND_MAXIMUM_SUB_ARRAY(A, low, mid);
 			MaxSubArray rightMaxSubArray = FIND_MAXIMUM_SUB_ARRAY(A, mid+1, high);
 			MaxSubArray crossMaxSubArray = FIND_MAX_CROSSING_SUB_ARRAY(A, low, mid, high);
 			
@@ -45,6 +50,7 @@ public class MaxSubArrayDC {
 			if (sum > left_sum) {
 				left_sum = sum;
 				max_left = i;
+				counter++;
 			}
 		}
 		sum = 0;
@@ -53,6 +59,7 @@ public class MaxSubArrayDC {
 			if (sum > right_sum) {
 				right_sum = sum;
 				max_right = j;
+				counter++;
 			}
 		}
 		return new MaxSubArray(max_left, max_right,  left_sum + right_sum);

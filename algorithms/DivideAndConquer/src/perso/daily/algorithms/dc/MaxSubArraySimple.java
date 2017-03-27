@@ -13,11 +13,13 @@ public class MaxSubArraySimple {
 	}
 	
 	private static MaxSubArray SimpleAlgo(int[] A){
+		int counter = 0;
 		int max_left = 0, max_right = 0, max_sum = Integer.MIN_VALUE;
 		for (int i = 0; i < A.length-1; i++) {
 			int sum = 0;
 			for (int j = i; j < A.length-1; j++) {
 				sum += A[j];
+				counter ++;
 				if (sum > max_sum) {
 					max_left = i;
 					max_right = j;
@@ -26,6 +28,7 @@ public class MaxSubArraySimple {
 			}
 		}
 		MaxSubArray maxSubArray = new MaxSubArray(max_left, max_right, max_sum);
+		System.out.println("MaxSubArraySimple : " + counter);
 		return maxSubArray;
 	}
 
