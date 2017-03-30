@@ -1,17 +1,15 @@
 package perso.daily.dp.component;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 
 public class Menu extends MenuComponent {
 	private List<MenuComponent> _components = new ArrayList<>();
-	private Function<String, LinkedHashMap<String, String>> _providerFunction;
+	private MenuProviderFunction _providerFunction;
 	
 	
-	public Menu(String name, String description, Function<String, LinkedHashMap<String, String>> providerFunction) {
+	public Menu(String name, String description, MenuProviderFunction providerFunction) {
 		super(name, description);
 		this._providerFunction = providerFunction;
 	}
@@ -31,7 +29,7 @@ public class Menu extends MenuComponent {
 	 */
 	public void onclick(){
 		if(_components.isEmpty()){
-			_providerFunction.apply(getName()).forEach((name,type)->{
+			_providerFunction.initItemsByName(getName()).forEach((name,type)->{
 				if (type == "Menu") {
 					add(new Menu( name, "",  _providerFunction ));
 				}
