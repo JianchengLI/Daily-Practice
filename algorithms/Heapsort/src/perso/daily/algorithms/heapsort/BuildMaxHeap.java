@@ -11,7 +11,7 @@ public class BuildMaxHeap {
 	
 	public static void BUILD_MAX_HEAP(int[] A){
 		for (int i=A.length/2; i > 0; i--) {
-			MaxHeapify.MAX_HEAPIFY(A, i);
+			MaxHeapify.MAX_HEAPIFY(A, i, A.length);
 		}
 	}
 }

@@ -5,25 +5,25 @@ public class MaxHeapify {
 	public static void main(String[] args) {
 		int[] A = {27,17,3,16,13,10,1,5,7,12,4,8,9,0};
 		int x = 3; // 1 < x <= A.length
-		MAX_HEAPIFY(A,x);
+		MAX_HEAPIFY(A, x, A.length);
 		for (int i = 0; i < A.length; i++) {
 			System.out.println(A[i]);
 		}
  	}
 	
-	public static void MAX_HEAPIFY(int[] A, int i){
+	public static void MAX_HEAPIFY(int[] A, int i, int size){
 		int left = Left(i);
 		int right = Right(i);
 		
-		int largest = (left <= A.length && A[left-1] > A[i-1]) ? left : i;
-		if (right <= A.length && A[right-1] > A[largest-1]) 
+		int largest = (left <= size && A[left-1] > A[i-1]) ? left : i;
+		if (right <= size && A[right-1] > A[largest-1]) 
 			largest = right;
 		
 		if (largest != i) {
 			int tmp = A[largest-1];
 			A[largest-1] = A[i-1];
 			A[i-1] = tmp;
-			MAX_HEAPIFY(A, largest);
+			MAX_HEAPIFY(A, largest, size);
 		}
 	}
 	
