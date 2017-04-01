@@ -1,7 +1,7 @@
 package perso.daily.algorithms.heapsort;
 
 public class PriorityQueue {
-	private int[] _heap; 
+	private static int[] _heap; 
 	
 	public PriorityQueue(int[] heap) {
 		Heap.BUILD_MAX_HEAP(heap);
@@ -10,40 +10,51 @@ public class PriorityQueue {
 
 	public void display(){
 		for (int i = 0; i < _heap.length; i++) {
-			System.out.println(_heap[i]);
+			System.out.print(_heap[i] + ", ");
 		}
+		System.out.println("");
 	}
 	
-	public static void INSERT(int[] A, int x){
-		int[] A1 = new int[A.length+1];
-		for (int i = 0; i < A.length; i++) {
-			A1[i] = A[i];
+	public void INSERT(int x){
+		int[] A1 = new int[_heap.length+1];
+		for (int i = 0; i <_heap.length; i++) {
+			A1[i] = _heap[i];
 		}
-		A1[A.length] = Integer.MIN_VALUE;
-		A = A1;
-		INCREASE_KEY(A, A.length, x);
+		A1[_heap.length] = Integer.MIN_VALUE;
+		_heap = A1;
+		INCREASE_KEY(_heap.length, x);
 	}
 	
-	public static int MAXIMUM(int[] A){
+	public int MAXIMUM(int[] A){
 		return A[0];
 	}
 	
-	public static int EXTRACT_MAX(int[] A){
-		return 0;
+	public int EXTRACT_MAX(){
+		int[] A1 = new int[_heap.length-1];
+		for (int i = 1; i < _heap.length; i++) {
+			A1[i-1] = _heap[i];
+		}
+	    int max = MAXIMUM(_heap);
+	    _heap = A1;
+	    return max;
 	}
 	
-	public static void INCREASE_KEY(int[] A, int i, int key){
-		if (A[i] > key) {
-			// Error
+	public void INCREASE_KEY(int i, int key){
+		if (_heap[i-1] > key) {
+			System.out.println("new key is smaller than current key");
 		}
-		A[i] = key;
-		while (i> 1 && A[i] < A[i]) {
-			
+		
+		_heap[i-1] = key;
+		while (i> 1 && _heap[PARENT(i)-1] < _heap[i-1]) {
+			int tmp = _heap[PARENT(i)-1];
+			_heap[PARENT(i)-1] = _heap[i-1];
+			_heap[i-1] = tmp;
+			i = PARENT(i);
 		}
 	}
 	
 	public static int PARENT(int i){
-		return 0;
+		return i/2;
 	}
 	
 	public static void main(String[] args) {
@@ -52,6 +63,14 @@ public class PriorityQueue {
 		priorityQueue.display();
 		
 		System.out.println(priorityQueue.MAXIMUM(A));
+		priorityQueue.INCREASE_KEY(9, 3);
+		priorityQueue.INCREASE_KEY(9, 15);
+		priorityQueue.display();
+		
+		priorityQueue.INSERT(17);
+		priorityQueue.display();
+		System.out.println(priorityQueue.EXTRACT_MAX());
+		priorityQueue.display();
 	}
 	
 }
