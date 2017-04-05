@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Ncaf8BpDEeeAN6nh4JHPjw">
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_2i2cUBpEEeeAN6nh4JHPjw" name="GumballMachineState">
+    <eAnnotations xmi:id="_jCN40BpFEeeAN6nh4JHPjw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details xmi:id="_jCN40RpFEeeAN6nh4JHPjw" key="Vertical"/>
+    </eAnnotations>
+    <region xmi:id="_XfKFUBpFEeeAN6nh4JHPjw" name="Region1">
+      <transition xmi:id="_ZTQOQBpHEeeAN6nh4JHPjw" source="_gyqRABpFEeeAN6nh4JHPjw" target="_P20lgBpGEeeAN6nh4JHPjw"/>
+      <transition xmi:id="_Z0ujoBpHEeeAN6nh4JHPjw" source="_P20lgBpGEeeAN6nh4JHPjw" target="_xb10UBpGEeeAN6nh4JHPjw">
+        <eAnnotations xmi:id="_y1p1ABpIEeeAN6nh4JHPjw"/>
+        <trigger xmi:id="_MWM3EBpJEeeAN6nh4JHPjw" name="INSERT QUARTER"/>
+      </transition>
+      <transition xmi:id="_aPiQUBpHEeeAN6nh4JHPjw" source="_xb10UBpGEeeAN6nh4JHPjw" target="_4tutkBpGEeeAN6nh4JHPjw">
+        <trigger xmi:id="_RHWR4BpJEeeAN6nh4JHPjw" name="TURN CRANK"/>
+      </transition>
+      <transition xmi:id="_cqvugBpHEeeAN6nh4JHPjw" source="_Zxkz4BpFEeeAN6nh4JHPjw" target="_lg0pQBpFEeeAN6nh4JHPjw"/>
+      <transition xmi:id="_gNOhUBpIEeeAN6nh4JHPjw" source="_4tutkBpGEeeAN6nh4JHPjw" target="_jJOi8BpJEeeAN6nh4JHPjw">
+        <trigger xmi:id="_ZmuR8BpJEeeAN6nh4JHPjw" name="DISPENSE"/>
+      </transition>
+      <transition xmi:id="_7GRx8BpJEeeAN6nh4JHPjw" source="_jJOi8BpJEeeAN6nh4JHPjw" target="_Zxkz4BpFEeeAN6nh4JHPjw">
+        <trigger xmi:id="_GmfFwBpKEeeAN6nh4JHPjw" name="COUNT = 0"/>
+      </transition>
+      <transition xmi:id="_ZLkxkBpKEeeAN6nh4JHPjw" source="_jJOi8BpJEeeAN6nh4JHPjw" target="_P20lgBpGEeeAN6nh4JHPjw">
+        <trigger xmi:id="_bQAHcBpKEeeAN6nh4JHPjw" name="COUNT > 0"/>
+      </transition>
+      <subvertex xmi:type="uml:State" xmi:id="_Zxkz4BpFEeeAN6nh4JHPjw" name="SOLD_OUT">
+        <region xmi:id="_bw2ukBpGEeeAN6nh4JHPjw" name="Region1"/>
+      </subvertex>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_gyqRABpFEeeAN6nh4JHPjw" name="Initial1"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_lg0pQBpFEeeAN6nh4JHPjw" name="Final1"/>
+      <subvertex xmi:type="uml:State" xmi:id="_P20lgBpGEeeAN6nh4JHPjw" name="NO_QUARTER"/>
+      <subvertex xmi:type="uml:State" xmi:id="_xb10UBpGEeeAN6nh4JHPjw" name="HAS_QUARTER"/>
+      <subvertex xmi:type="uml:State" xmi:id="_4tutkBpGEeeAN6nh4JHPjw" name="SOLD"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_jJOi8BpJEeeAN6nh4JHPjw" name="" kind="choice"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_1CMFYBpFEeeAN6nh4JHPjw" name="StateMachine2"/>
+</uml:Model>
