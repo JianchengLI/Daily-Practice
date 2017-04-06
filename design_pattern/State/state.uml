@@ -1,38 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Ncaf8BpDEeeAN6nh4JHPjw">
-  <packagedElement xmi:type="uml:StateMachine" xmi:id="_2i2cUBpEEeeAN6nh4JHPjw" name="GumballMachineState">
-    <eAnnotations xmi:id="_jCN40BpFEeeAN6nh4JHPjw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-      <details xmi:id="_jCN40RpFEeeAN6nh4JHPjw" key="Vertical"/>
-    </eAnnotations>
-    <region xmi:id="_XfKFUBpFEeeAN6nh4JHPjw" name="Region1">
-      <transition xmi:id="_ZTQOQBpHEeeAN6nh4JHPjw" source="_gyqRABpFEeeAN6nh4JHPjw" target="_P20lgBpGEeeAN6nh4JHPjw"/>
-      <transition xmi:id="_Z0ujoBpHEeeAN6nh4JHPjw" source="_P20lgBpGEeeAN6nh4JHPjw" target="_xb10UBpGEeeAN6nh4JHPjw">
-        <eAnnotations xmi:id="_y1p1ABpIEeeAN6nh4JHPjw"/>
-        <trigger xmi:id="_MWM3EBpJEeeAN6nh4JHPjw" name="INSERT QUARTER"/>
-      </transition>
-      <transition xmi:id="_aPiQUBpHEeeAN6nh4JHPjw" source="_xb10UBpGEeeAN6nh4JHPjw" target="_4tutkBpGEeeAN6nh4JHPjw">
-        <trigger xmi:id="_RHWR4BpJEeeAN6nh4JHPjw" name="TURN CRANK"/>
-      </transition>
-      <transition xmi:id="_cqvugBpHEeeAN6nh4JHPjw" source="_Zxkz4BpFEeeAN6nh4JHPjw" target="_lg0pQBpFEeeAN6nh4JHPjw"/>
-      <transition xmi:id="_gNOhUBpIEeeAN6nh4JHPjw" source="_4tutkBpGEeeAN6nh4JHPjw" target="_jJOi8BpJEeeAN6nh4JHPjw">
-        <trigger xmi:id="_ZmuR8BpJEeeAN6nh4JHPjw" name="DISPENSE"/>
-      </transition>
-      <transition xmi:id="_7GRx8BpJEeeAN6nh4JHPjw" source="_jJOi8BpJEeeAN6nh4JHPjw" target="_Zxkz4BpFEeeAN6nh4JHPjw">
-        <trigger xmi:id="_GmfFwBpKEeeAN6nh4JHPjw" name="COUNT = 0"/>
-      </transition>
-      <transition xmi:id="_ZLkxkBpKEeeAN6nh4JHPjw" source="_jJOi8BpJEeeAN6nh4JHPjw" target="_P20lgBpGEeeAN6nh4JHPjw">
-        <trigger xmi:id="_bQAHcBpKEeeAN6nh4JHPjw" name="COUNT > 0"/>
-      </transition>
-      <subvertex xmi:type="uml:State" xmi:id="_Zxkz4BpFEeeAN6nh4JHPjw" name="SOLD_OUT">
-        <region xmi:id="_bw2ukBpGEeeAN6nh4JHPjw" name="Region1"/>
-      </subvertex>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_gyqRABpFEeeAN6nh4JHPjw" name="Initial1"/>
-      <subvertex xmi:type="uml:FinalState" xmi:id="_lg0pQBpFEeeAN6nh4JHPjw" name="Final1"/>
-      <subvertex xmi:type="uml:State" xmi:id="_P20lgBpGEeeAN6nh4JHPjw" name="NO_QUARTER"/>
-      <subvertex xmi:type="uml:State" xmi:id="_xb10UBpGEeeAN6nh4JHPjw" name="HAS_QUARTER"/>
-      <subvertex xmi:type="uml:State" xmi:id="_4tutkBpGEeeAN6nh4JHPjw" name="SOLD"/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_jJOi8BpJEeeAN6nh4JHPjw" name="" kind="choice"/>
-    </region>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_R18H4BrmEeeIZ5gS_tIggA">
+  <packageImport xmi:id="_zEBA4BrnEeeIZ5gS_tIggA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_f7dREBrmEeeIZ5gS_tIggA" name="State">
+    <ownedOperation xmi:id="_hWwxcBrmEeeIZ5gS_tIggA" name="insertQuarter" isAbstract="true"/>
+    <ownedOperation xmi:id="_korOIBrmEeeIZ5gS_tIggA" name="ejectQuarter" isAbstract="true"/>
+    <ownedOperation xmi:id="_oqgE0BrmEeeIZ5gS_tIggA" name="turnCrank" isAbstract="true"/>
+    <ownedOperation xmi:id="_qk_bkBrmEeeIZ5gS_tIggA" name="dispense" isAbstract="true"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:StateMachine" xmi:id="_1CMFYBpFEeeAN6nh4JHPjw" name="StateMachine2"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_uBTKYBrmEeeIZ5gS_tIggA" name="SoldState">
+    <interfaceRealization xmi:id="_xrbSwBrmEeeIZ5gS_tIggA" client="_uBTKYBrmEeeIZ5gS_tIggA" supplier="_f7dREBrmEeeIZ5gS_tIggA" contract="_f7dREBrmEeeIZ5gS_tIggA"/>
+    <ownedOperation xmi:id="_vyA6EBrmEeeIZ5gS_tIggA" name="insertQuarter"/>
+    <ownedOperation xmi:id="_wWVvIBrmEeeIZ5gS_tIggA" name="ejectQuarter"/>
+    <ownedOperation xmi:id="_wphw4BrmEeeIZ5gS_tIggA" name="turnCrank"/>
+    <ownedOperation xmi:id="_x83BABrmEeeIZ5gS_tIggA" name="dispense"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_02I7QBrmEeeIZ5gS_tIggA" name="SoldOutState">
+    <interfaceRealization xmi:id="_3sMiYBrmEeeIZ5gS_tIggA" client="_02I7QBrmEeeIZ5gS_tIggA" supplier="_f7dREBrmEeeIZ5gS_tIggA" contract="_f7dREBrmEeeIZ5gS_tIggA"/>
+    <ownedOperation xmi:id="_1IPX4BrmEeeIZ5gS_tIggA" name="insertQuarter"/>
+    <ownedOperation xmi:id="__HcL8BrmEeeIZ5gS_tIggA" name="ejectQuarter"/>
+    <ownedOperation xmi:id="_DjaA8BrnEeeIZ5gS_tIggA" name="turnCrank"/>
+    <ownedOperation xmi:id="_H24oUBrnEeeIZ5gS_tIggA" name="dispense"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4SyBQBrmEeeIZ5gS_tIggA" name="NoQuarterState">
+    <interfaceRealization xmi:id="_4xPe4BrmEeeIZ5gS_tIggA" client="_4SyBQBrmEeeIZ5gS_tIggA" supplier="_f7dREBrmEeeIZ5gS_tIggA" contract="_f7dREBrmEeeIZ5gS_tIggA"/>
+    <ownedOperation xmi:id="_5c3OwBrmEeeIZ5gS_tIggA" name="insertQuarter"/>
+    <ownedOperation xmi:id="_AYbSsBrnEeeIZ5gS_tIggA" name="ejectQuarter"/>
+    <ownedOperation xmi:id="_EWlKUBrnEeeIZ5gS_tIggA" name="turnCrank"/>
+    <ownedOperation xmi:id="_I5bqcBrnEeeIZ5gS_tIggA" name="dispense"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6jW8wBrmEeeIZ5gS_tIggA" name="HasQuarterState">
+    <interfaceRealization xmi:id="_7j8QABrmEeeIZ5gS_tIggA" client="_6jW8wBrmEeeIZ5gS_tIggA" supplier="_f7dREBrmEeeIZ5gS_tIggA" contract="_f7dREBrmEeeIZ5gS_tIggA"/>
+    <ownedOperation xmi:id="_8OBu0BrmEeeIZ5gS_tIggA" name="insertQuarter"/>
+    <ownedOperation xmi:id="_BDnkwBrnEeeIZ5gS_tIggA" name="ejectQuarter"/>
+    <ownedOperation xmi:id="_FIJKIBrnEeeIZ5gS_tIggA" name="turnCrank"/>
+    <ownedOperation xmi:id="_KBznwBrnEeeIZ5gS_tIggA" name="dispense"/>
+  </packagedElement>
 </uml:Model>
