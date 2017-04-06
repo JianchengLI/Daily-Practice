@@ -18,6 +18,24 @@ public class GumballMachineTestDrive {
 		machine.turnQuarter();
 		machine.insertQuarter();
 		machine.turnQuarter();
+		
+		System.out.println("");
+		System.out.println("New Machine Testing ...");
+		NewGumballMachine newMachine = new NewGumballMachine(5);
+		newMachine.insertQuarter();
+		newMachine.insertQuarter();
+		newMachine.ejectQuarter();
+		newMachine.ejectQuarter();
+		newMachine.insertQuarter();
+		newMachine.turnCrank();
+		newMachine.insertQuarter();
+		newMachine.turnCrank();
+		newMachine.insertQuarter();
+		newMachine.turnCrank();
+		newMachine.insertQuarter();
+		newMachine.turnCrank();
+		newMachine.insertQuarter();
+		newMachine.turnCrank();
 	}
 
 }

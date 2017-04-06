@@ -15,7 +15,21 @@ public class NewGumballMachine {
 		_hasQuaterState = new HasQuarterState(this);
 		_soldState = new SoldState(this);
 		_count = count;
+		if (count > 0) {
+			_state = _noQuarterState;
+		}
 		
+	}
+	
+	public State get_soldOutState() {return _soldOutState;}
+	public State get_noQuarterState() {return _noQuarterState;}
+	public State get_hasQuaterState() {return _hasQuaterState;}
+	public State get_soldState() {return _soldState;}
+	public State get_state() {return _state;}
+	public int get_count() {return _count;}
+
+	public void setState(State state){
+		_state = state;
 	}
 	
 	public void insertQuarter() {
@@ -28,10 +42,7 @@ public class NewGumballMachine {
 
 	public void turnCrank() {
 		_state.turnCrank();
-	}
-	
-	public void setState(State state){
-		_state = state;
+		_state.dispense();
 	}
 	
 	public void releaseBall(){

@@ -2,33 +2,32 @@ package perso.daily.dp.state;
 
 public class HasQuarterState implements State {
 
-	NewGumballMachine _machine;
+	private NewGumballMachine _machine;
 	
 	public HasQuarterState(NewGumballMachine machine) {
 		_machine = machine;
 	}
+	
 	@Override
 	public void insertQuarter() {
-		// TODO Auto-generated method stub
-
+		System.out.println("You have already insert a quarter");
 	}
 
 	@Override
 	public void ejectQuarter() {
-		// TODO Auto-generated method stub
-
+		System.out.println("A Quarter is return");
+		_machine.setState(_machine.get_noQuarterState());
 	}
 
 	@Override
 	public void turnCrank() {
-		// TODO Auto-generated method stub
-
+		System.out.println("You turned ...");
+		_machine.setState(_machine.get_soldState());
 	}
 
 	@Override
 	public void dispense() {
-		// TODO Auto-generated method stub
-
+		System.out.println("No gumball dispensed");
 	}
 
 }
