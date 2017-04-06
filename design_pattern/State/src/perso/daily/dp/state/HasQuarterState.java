@@ -1,5 +1,7 @@
 package perso.daily.dp.state;
 
+import java.util.Random;
+
 public class HasQuarterState implements State {
 
 	private NewGumballMachine _machine;
@@ -23,6 +25,13 @@ public class HasQuarterState implements State {
 	public void turnCrank() {
 		System.out.println("You turned ...");
 		_machine.setState(_machine.get_soldState());
+		
+		Random random = new Random();
+		int randomNum = random.nextInt((4) + 1) + 1; // 1 - 5
+		if (randomNum == 1) {
+			System.out.println("Winner !!");
+			_machine.setState(_machine.get_winnerState());
+		}
 	}
 
 	@Override

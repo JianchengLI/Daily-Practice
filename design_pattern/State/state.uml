@@ -37,4 +37,42 @@
     <ownedOperation xmi:id="_FIJKIBrnEeeIZ5gS_tIggA" name="turnCrank"/>
     <ownedOperation xmi:id="_KBznwBrnEeeIZ5gS_tIggA" name="dispense"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_D5y9UBsLEeeIZ5gS_tIggA" name="Gumball State Machine">
+    <region xmi:id="_LewjkBsLEeeIZ5gS_tIggA" name="Region1">
+      <transition xmi:id="_w0MI8BsLEeeIZ5gS_tIggA" source="_hBQbsBsLEeeIZ5gS_tIggA" target="_NOc_kBsLEeeIZ5gS_tIggA"/>
+      <transition xmi:id="_xXMIUBsLEeeIZ5gS_tIggA" source="_NOc_kBsLEeeIZ5gS_tIggA" target="_rfnQ8BsLEeeIZ5gS_tIggA">
+        <trigger xmi:id="_fIrekBsNEeeIZ5gS_tIggA" name="INSERT QUARTER"/>
+      </transition>
+      <transition xmi:id="_x_dpQBsLEeeIZ5gS_tIggA" source="_rfnQ8BsLEeeIZ5gS_tIggA" target="_NOc_kBsLEeeIZ5gS_tIggA">
+        <trigger xmi:id="_iKFaEBsNEeeIZ5gS_tIggA" name="REJECT QUARTER"/>
+      </transition>
+      <transition xmi:id="_2jDwQBsLEeeIZ5gS_tIggA" source="_rfnQ8BsLEeeIZ5gS_tIggA" target="_uCPlwBsLEeeIZ5gS_tIggA">
+        <trigger xmi:id="_r7RnUBsNEeeIZ5gS_tIggA" name="TURN CRANT"/>
+      </transition>
+      <transition xmi:id="_6zlKQBsLEeeIZ5gS_tIggA" source="_uCPlwBsLEeeIZ5gS_tIggA" target="_6R-SABsLEeeIZ5gS_tIggA">
+        <trigger xmi:id="_vR8BIBsNEeeIZ5gS_tIggA" name="DISPENSE"/>
+      </transition>
+      <transition xmi:id="_7u6xIBsLEeeIZ5gS_tIggA" source="_6R-SABsLEeeIZ5gS_tIggA" target="_vBy-QBsLEeeIZ5gS_tIggA">
+        <trigger xmi:id="_9ajhoBsNEeeIZ5gS_tIggA" name="COUNT &lt;= 0"/>
+      </transition>
+      <transition xmi:id="_-T4BMBsLEeeIZ5gS_tIggA" source="_6R-SABsLEeeIZ5gS_tIggA" target="_NOc_kBsLEeeIZ5gS_tIggA">
+        <trigger xmi:id="__ak4oBsNEeeIZ5gS_tIggA" name="COUNT > 0"/>
+      </transition>
+      <transition xmi:id="__CA5kBsLEeeIZ5gS_tIggA" source="_vBy-QBsLEeeIZ5gS_tIggA" target="_wRsf4BsLEeeIZ5gS_tIggA"/>
+      <transition xmi:id="_0XjaoBsOEeeIZ5gS_tIggA" source="_rfnQ8BsLEeeIZ5gS_tIggA" target="_PuvDoBsOEeeIZ5gS_tIggA">
+        <trigger xmi:id="_8szOUBsOEeeIZ5gS_tIggA" name="TURN CRANT AND WIN"/>
+      </transition>
+      <transition xmi:id="_3eOQoBsOEeeIZ5gS_tIggA" source="_PuvDoBsOEeeIZ5gS_tIggA" target="_6R-SABsLEeeIZ5gS_tIggA">
+        <trigger xmi:id="_Ex8JcBsPEeeIZ5gS_tIggA" name="DISPENSE TWICE"/>
+      </transition>
+      <subvertex xmi:type="uml:State" xmi:id="_NOc_kBsLEeeIZ5gS_tIggA" name="NO-QUARTER"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_hBQbsBsLEeeIZ5gS_tIggA" name="Initial1"/>
+      <subvertex xmi:type="uml:State" xmi:id="_rfnQ8BsLEeeIZ5gS_tIggA" name="HAS-QUARTER"/>
+      <subvertex xmi:type="uml:State" xmi:id="_uCPlwBsLEeeIZ5gS_tIggA" name="SOLD"/>
+      <subvertex xmi:type="uml:State" xmi:id="_vBy-QBsLEeeIZ5gS_tIggA" name="SOLD-OUT"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_wRsf4BsLEeeIZ5gS_tIggA" name="Final1"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_6R-SABsLEeeIZ5gS_tIggA" name="" kind="choice"/>
+      <subvertex xmi:type="uml:State" xmi:id="_PuvDoBsOEeeIZ5gS_tIggA" name="WINNER"/>
+    </region>
+  </packagedElement>
 </uml:Model>

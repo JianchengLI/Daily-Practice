@@ -7,28 +7,34 @@ public class WinnerState implements State {
 	public WinnerState(NewGumballMachine machine) {
 		_machine = machine;
 	}
+	
 	@Override
 	public void insertQuarter() {
-		// TODO Auto-generated method stub
+		System.out.println("Please waitting");
 
 	}
 
 	@Override
 	public void ejectQuarter() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Sorry, you have already turned Crank");
 	}
 
 	@Override
 	public void turnCrank() {
-		// TODO Auto-generated method stub
+		System.out.println("Please waitting, you have already turned Crank");
 
 	}
 
 	@Override
 	public void dispense() {
-		// TODO Auto-generated method stub
-
+		_machine.releaseBall();
+		_machine.releaseBall();
+		if (_machine.get_count() > 0) {
+			_machine.setState(_machine.get_noQuarterState());
+		}else{
+			System.out.println("Oops, out of gumballs");
+			_machine.setState(_machine.get_soldOutState());
+		}
 	}
 
 }
