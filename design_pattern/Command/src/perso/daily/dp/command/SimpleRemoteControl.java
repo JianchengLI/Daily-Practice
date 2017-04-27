@@ -13,4 +13,8 @@ public class SimpleRemoteControl {
 	public void butttonWasPressed(){
 		_slot.execute();
 	}
+	
+	public void buttonUndoPressed(){
+		_slot.undo();
+	}
 }

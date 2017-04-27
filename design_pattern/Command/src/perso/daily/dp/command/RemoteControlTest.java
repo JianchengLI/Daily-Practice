@@ -13,8 +13,10 @@ public class RemoteControlTest {
 		
 		remote.setCommand(lightOnCommand);
 		remote.butttonWasPressed();
+		remote.buttonUndoPressed();
 		remote.setCommand(garageDoorOpenCommand);
 		remote.butttonWasPressed();
+		remote.buttonUndoPressed();
 	}
 
 }
