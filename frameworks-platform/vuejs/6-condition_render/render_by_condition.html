@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Computed CSS and Styles</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+   <div id='app'>
+      <h1 v-if="ok">Yes</h1>
+      <h1 v-else>No</h1>
+
+      <template v-if="ok">
+         <h1>Title</h1>
+         <p>Paragraph 1</p>
+         <p>Paragraph 2</p>
+      </template>
+
+
+      <div v-if="type === 'A'">
+        A
+      </div>
+      <div v-else-if="type === 'B'">
+        B
+      </div>
+      <div v-else-if="type === 'C'">
+        C
+      </div>
+      <div v-else>
+        Not A/B/C
+      </div>
+
+      <!--注意， v-show 不支持 <template> 语法，也不支持 v-else-->
+      <!--v-if vs v-show-->
+      <!--一般来说， v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 v-show 较好；如果在运行时条件不太可能改变，则使用 v-if 较好-->
+      <!--当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级。-->
+      <h1 v-show="ok">Hello!</h1>
+
+   </div>
+
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            ok:true,
+            type:"A"
+        }
+     });
+</script>
+</body>
+</html>

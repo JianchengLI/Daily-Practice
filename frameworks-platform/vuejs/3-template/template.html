@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Template</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        <!-- Mustache -->
+        <span>Message: {{ message }}</span><br />
+        <span v-once>This will never change: {{ message }}</span>
+
+        <!-- Attributes -->
+        <div v-bind:id="id"></div>
+        <div>{{ number + 1 }}</div>
+        <div>{{ ok ? 'YES' : 'NO' }}</div>
+        <div>{{ message.split('').reverse().join('') }}</div>
+
+        <!-- 有个限制就是，每个绑定都只能包含单个表达式 -->
+        <!--
+            {{ var a = 1 }} NOT WORK!  这是语句，不是表达式
+            {{ if (ok) { return message } }}  NOT WORK!  流控制也不会生效，请使用三元表达式
+        -->
+        <div v-bind:id="'list-' + id"></div>
+    </div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            id:"dynamicId",    //Mustache 不能在 HTML 属性中使用，应使用 v-bind 指令
+            message: 'Hello Vue!',
+            number:10,
+            ok:true
+        }
+    });
+
+</script>
+</body>
+</html>

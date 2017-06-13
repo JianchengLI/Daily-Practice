@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Abbreviation</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+         <!-- #v-bind -->
+         <!-- 完整语法 -->
+         <p><a v-bind:href="url"></a></p>
+         <!-- 缩写 -->
+         <p><a :href="url"></a></p>
+
+         <!-- #v-on -->
+         <!-- 完整语法 -->
+         <a v-on:click="doSomething"></a>
+         <!-- 缩写 -->
+         <a @click="doSomething"></a>
+    </div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            url:"https://cn.vuejs.org/v2/guide/syntax.html"
+        }
+    });
+</script>
+</body>
+</html>

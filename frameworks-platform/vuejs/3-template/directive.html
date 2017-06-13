@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Directive</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        <p>{{message}}</p>
+        <p v-if="seen">Now you see me</p>
+        <a v-bind:href="url">Vue Guide Page</a>
+        <p><a v-on:click="reverseMessage">Click</a></p>
+
+        <!--修饰符（Modifiers）是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。
+        例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()-->
+        <form v-on:submit.prevent="onSubmit"></form>
+    </div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message:"Some Message Hello Vue",
+            seen:true,
+            url:"https://cn.vuejs.org/v2/guide/syntax.html"
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+        
+    });
+
+</script>
+</body>
+</html>

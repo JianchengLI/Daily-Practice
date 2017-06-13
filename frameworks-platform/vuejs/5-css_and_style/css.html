@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Computed CSS and Styles</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        Vue.component('my-component', {
+            template: '<p class="foo bar">Hi</p>'
+         });
+    </script>
+</head>
+<body>
+   <div id='app'>
+        <div v-bind:class="{ active: isActive }"></div>
+        <div v-bind:class="{ active: isActive, 'text-danger': error }"></div>
+
+        <!--OR -->
+        <div v-bind:class="classObject"></div>
+        <!--OR -->
+        <div v-bind:class="classObjectComputed"></div>
+
+
+        <div v-bind:class="[{ active: isActive }, errorClass]"></div>
+
+        <my-component class="baz boo" v-bind:class="{ active: isActive }"></my-component>
+   </div>
+
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data:{
+              isActive: true,
+              error: false,
+              errorClass: 'text-danger',
+              classObject:{
+                    active: true,
+                    'text-danger': false
+              }
+        },
+        computed: {
+            classObjectComputed: function () {
+                return {
+                    active: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal',
+                }
+            }
+        }
+     });
+</script>
+</body>
+</html>

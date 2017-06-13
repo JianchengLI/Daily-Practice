@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Filter</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        <!-- in mustaches -->
+       <p>{{ message | capitalize }}</p>
+       <p>{{ message | filterA | filterB }}</p>
+
+       <!-- in v-bind -->
+       <!--<div v-bind:id="rawId | formatId"></div>-->
+    </div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+          message:"some message hello vue !"
+        },
+        filters: {
+            capitalize: function (value) {
+                if (!value) return ''
+                    value = value.toString()
+                return value.charAt(0).toUpperCase() + value.slice(1);
+            },
+            filterA: function(value){
+                 return value.split('').reverse().join('');
+            },
+            filterB: function(value){
+                return value;
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
