@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Render List variant Array </title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+   
+</head>
+<body>
+   <div id='app'>
+       <ul id="example-1">
+            <li v-for="item in items">
+                {{ item.message }}
+            </li>
+        </ul>
+   </div>
+
+   <script type="text/javascript">
+        // Vue 包含一组观察数组的变异方法，所以它们也将会触发视图更新
+            // push()
+            // pop()
+            // shift()
+            // unshift()
+            // splice()
+            // sort()
+            // reverse()
+        
+        var example1 = new Vue({
+            el: "#example-1",
+            data:{
+                 items: [
+                    {message: 'Foo', show:true },
+                    {message: 'Bar', show:false},
+                    {message: 'Foo Bar', show:true}
+                ]
+            }
+        })
+
+        example1.items = example1.items.filter(function (item) {
+            return item.message.match(/Foo/)
+        })
+   </script>
+</body>
+</html>

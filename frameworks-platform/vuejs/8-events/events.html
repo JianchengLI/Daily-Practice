@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Events</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+   <div id='app'>
+        <div id="example-1">
+            <button v-on:click="counter += 1">增加 1</button>
+            <p>这个按钮被点击了 {{ counter }} 次。</p>
+        </div>
+
+        <div id="example-2">
+            <!-- `greet` 是在下面定义的方法名 -->
+            <button v-on:click="greet">Greet</button>
+        </div>
+
+        <div id="example-3">
+            <button v-on:click="say('hi')">Say hi</button>
+            <button v-on:click="say('what')">Say what</button>
+            <!--有时也需要在内联语句处理器中访问原生 DOM 事件。可以用特殊变量 $event 把它传入方法-->
+            <button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+        </div>
+   </div>
+
+   <script type="text/javascript">
+        var example1 = new Vue({
+            el: '#example-1',
+            data: {
+                counter: 0
+            }
+        });
+
+        var example2 = new Vue({
+            el: '#example-2',
+            data: {
+                name: 'Vue.js'
+            },
+            // 在 `methods` 对象中定义方法
+            methods: {
+                greet: function (event) {
+                    // `this` 在方法里指当前 Vue 实例
+                    alert('Hello ' + this.name + '!')
+                    // `event` 是原生 DOM 事件
+                    alert(event.target.tagName)
+                }
+            }
+        });
+
+        new Vue({
+            el: '#example-3',
+            methods: {
+                say: function (message) {
+                    alert(message)
+                },
+                warn: function (message, event) {
+                    // 现在我们可以访问原生事件对象
+                    if (event) event.preventDefault()
+                    alert(message)
+                }
+            }
+        });
+   </script>
+</body>
+</html>

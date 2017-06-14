@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Render List with Component</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        Vue.component('my-component', {
+            props: ['item', 'index'],
+            template: '\
+                <li>\
+                    {{index}} : {{ item. message}}\
+                </li>\
+            '
+        })
+    </script>
+</head>
+<body>
+   <div id='example-1'>
+       <!--建议尽可能使用 v-for 来提供 key ，除非迭代 DOM 内容足够简单，或者你是故意要依赖于默认行为来获得性能提升-->
+       <my-component v-for="(item, index) in items" v-bind:item="item" v-bind:index="index" :key="index" v-if="item.show">
+       </my-component>
+   </div>
+
+   <script type="text/javascript">
+    var example1 = new Vue({
+            el: '#example-1',
+            data: {
+                items: [
+                    {message: 'Foo', show:true },
+                    {message: 'Bar', show:false},
+                    {message: 'Foo Bar', show:true}
+                ]
+            }
+        });
+   </script>
+</body>
+</html>

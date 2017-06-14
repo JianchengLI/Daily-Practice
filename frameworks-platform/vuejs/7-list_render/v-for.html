@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Render List</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+   <div id='app'>
+       <ul id="example-1">
+            <li v-for="item in items">
+                {{ item.message }}
+            </li>
+        </ul>
+
+        <ul id="example-2">
+            <li v-for="(item, index) in items">
+                {{ parentMessage }} - {{ index }} - {{ item.message }}
+            </li>
+        </ul>
+        
+        <!--你也可以用 v-for 通过一个对象的属性来迭代-->
+        <!--<ul id="repeat-object" class="demo">
+            <li v-for="value in object">
+                {{ value }}
+            </li>
+        </ul>-->
+        <div  id="repeat-object">
+            <div v-for="(value, key, index) in object">
+                {{ index }}. {{ key }} : {{ value }}
+            </div>
+        </div>
+
+        <div>
+            <span v-for="n of 10">{{ n }}</span>
+        </div>
+   </div>
+
+<script type="text/javascript">
+   var example1 = new Vue({
+        el: '#example-1',
+        data: {
+            items: [
+                {message: 'Foo' },
+                {message: 'Bar' }
+            ]
+        }
+    });
+
+    var example2 = new Vue({
+        el: '#example-2',
+        data: {
+            parentMessage: 'Parent',
+            items: [
+                { message: 'Foo' },
+                { message: 'Bar' }
+            ]
+        }
+    });
+
+    var example3 = new Vue({
+        el: '#repeat-object',
+        data: {
+            object: {
+                FirstName: 'John',
+                LastName: 'Doe',
+                Age: 30
+            }
+        }
+    });
+</script>
+</body>
+</html>
