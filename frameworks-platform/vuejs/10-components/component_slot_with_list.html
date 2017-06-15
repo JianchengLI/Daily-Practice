@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Component Slot </title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        Vue.component('my-awesome-list', {
+            props: ['myitems'],
+            template:'\
+               <ul>\
+                    <slot name="item"\
+                        v-for="item in myitems"\
+                        :text="item.text">\
+                        <!-- 这里写入备用内容 -->\
+                    </slot>\
+                </ul>\
+            '
+        })
+    </script>
+</head>
+<body>
+
+<div id="parent">
+    <my-awesome-list :myitems="items">
+        <!-- 作用域插槽也可以是具名的 -->
+        <template slot="item" scope="props">
+            <li class="my-fancy-item">{{ props.text }}</li>
+        </template>
+    </my-awesome-list>
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#parent",
+        data:{
+            items:[
+                { text: '蔬菜' },
+                { text: '奶酪' },
+                { text: '随便其他什么人吃的东西' }
+            ]
+        }
+    });
+</script>
+</body>
+</html>

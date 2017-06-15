@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Component Parent and Child </title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        Vue.component('child', {
+            props: ['message'],
+            template: '<span>{{ message }}</span>'
+        })
+    </script>
+</head>
+<body>
+    <!--在 Vue.js 中，父子组件的关系可以总结为 props down, events up 。父组件通过 props 向下传递数据给子组件，子组件通过 events 给父组件发送消息-->
+   <div id="parent">
+       <child message="hello vue component"></child>
+    </div>
+    <!--<my-child-component></my-child-component> dosen't work' must in #app-->
+    <script type="text/javascript">
+       var app = new Vue({
+           el: "#parent",
+       });
+    </script>
+</body>
+</html>

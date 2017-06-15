@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Component Slot </title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        Vue.component('my-component', {
+            props: [''],
+            template:'\
+                <div>\
+                    <h2>我是子组件的标题</h2>\
+                    <slot>\
+                        只有在没有要分发的内容时才会显示。\
+                    </slot>\
+                </div>\
+            '
+        })
+    </script>
+</head>
+<body>
+
+<div id="parent">
+    <my-component>
+        <p>这是一些初始内容</p>
+        <p>这是更多的初始内容</p>
+    </my-component>
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#parent",
+    });
+</script>
+</body>
+</html>

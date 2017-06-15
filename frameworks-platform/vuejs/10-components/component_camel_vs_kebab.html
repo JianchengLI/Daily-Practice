@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue Component camelCase vs kebab-case </title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        /*HTML 特性是不区分大小写的。所以，当使用的不是字符串模版，camelCased (驼峰式) 命名的 prop 需要转换为相对应的 kebab-case (短横线隔开式) 命名*/
+        Vue.component('child', {
+            // camelCase in JavaScript
+            props: ['myMessage'],
+            template: '<span>{{ myMessage }}</span>'
+        })
+    </script>
+</head>
+<body>
+
+<div id="parent">
+    <!-- kebab-case in HTML -->
+    <child my-message="hello vue component"></child>
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#parent",
+    });
+</script>
+</body>
+</html>
