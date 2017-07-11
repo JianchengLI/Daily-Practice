@@ -21,6 +21,6 @@ public abstract class CaffeineBeverageWithHook {
 	public abstract void addCondiments();
 	
 	boolean customerWantsCondiments(){
-		return true;
+		return true; // Hook
 	}
 }
