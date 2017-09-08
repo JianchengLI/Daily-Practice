@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-register": "^6.26.0"
+  },
+  "scripts": {
+    "build": "babel src -d lib -s"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0"
+  }
+}
