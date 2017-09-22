@@ -15,8 +15,8 @@ let promise = new Promise(function(resolve, reject) {
     resolve();
 });
 
-promise.then(function() {
-    console.log('resolved.');
-}).then(()=>{console.log('resolved x2.')});
+promise
+    .then(()=>{console.log('resolved.');})
+    .then(()=>{console.log('resolved x2.')});
 
 console.log('Hi!');
