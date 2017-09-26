@@ -6,7 +6,8 @@
         "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
       }
     }],
-    "stage-2"
+    "stage-2",
+    "vue-app"
   ],
   "plugins": ["transform-runtime"],
   "env": {
@@ -16,3 +17,7 @@
     }
   }
 }
+//上面提到的各种preset("es2015")的问题就是: 它们都太”重”了, 即包含了过多在某些情况下不需要的功能.
+//比如, 现代的浏览器大多支持ES6的generator, 但是如果你使用babel-preset-es2015, 它会将generator函数编译为复杂的ES5代码, 这是没有必要的。
+
+//但使用babel-preset-env, 我们可以声明环境, 然后该preset就会只编译包含我们所声明环境缺少的特性的代码，因此也是比较推荐的方式
