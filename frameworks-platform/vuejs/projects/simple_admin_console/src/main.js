@@ -4,11 +4,12 @@ import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import App from './App'
+import AppNav from './layouts/AppNav'
 
 import router from './router'
 
-Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.component('app-nav', AppNav)
 
 /* eslint-disable no-new */
 new Vue({
