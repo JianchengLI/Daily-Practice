@@ -3,13 +3,15 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-import App from './App'
-import AppNav from './layouts/AppNav'
+import App from './App.vue'
+import AppNav from './layouts/AppNav.vue'
+import AppSideBar from './layouts/AppSideBar.vue'
 
 import router from './router'
 
 Vue.use(ElementUI)
 Vue.component('app-nav', AppNav)
+Vue.component('app-sidebar', AppSideBar)
 
 /* eslint-disable no-new */
 new Vue({

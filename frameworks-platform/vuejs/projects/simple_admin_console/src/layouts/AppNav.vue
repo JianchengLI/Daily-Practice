@@ -21,7 +21,7 @@
 </script>
 
 <style>
-  #header {
-
+  #app-nav {
+    width: 100%;
   }
 </style>
