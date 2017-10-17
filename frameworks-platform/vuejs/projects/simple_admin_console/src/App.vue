@@ -1,13 +1,13 @@
 <template>
-  <div id="app">
-    <app-nav></app-nav>
-    <div id="app-context">
-       <app-sidebar></app-sidebar>
-       <app-content>
+  <el-row id="app">
+    <app-sidebar></app-sidebar>
+    <el-col id="app-context" :span="20">
+      <app-nav></app-nav>
+      <app-content>
          <router-view></router-view>
-       </app-content>
-    </div>
-  </div>
+      </app-content>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -17,6 +17,12 @@ export default {
 </script>
 
 <style>
+  html {
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+  }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
