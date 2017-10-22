@@ -1,5 +1,5 @@
 <template>
-  <div id="app-sidebar">
+  <el-col id="app-sidebar" :span="4">
     <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
       <el-radio-button :label="false">展开</el-radio-button>
       <el-radio-button :label="true">收起</el-radio-button>
@@ -32,19 +32,22 @@
         <span slot="title">导航三</span>
       </el-menu-item>
     </el-menu>
-  </div>
+  </el-col>
 </template>
 
 <script>
   export default {
-    data: {
-      isCollapse: true
+    data () {
+      return {
+        isCollapse: true
+      }
     },
+
     methods: {
-      handleOpen: function (key, keyPath) {
+      handleOpen (key, keyPath) {
         console.log(key, keyPath)
       },
-      handleClose: function (key, keyPath) {
+      handleClose (key, keyPath) {
         console.log(key, keyPath)
       }
     }
@@ -53,7 +56,6 @@
 
 <style>
   #app-sidebar {
-     width: 200px;
   }
 
   .el-menu-vertical-demo:not(.el-menu--collapse) {

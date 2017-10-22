@@ -1,6 +1,6 @@
 <template>
-  <div id="app-nav">
-    <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+  <el-row id="app-nav">
+    <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect">
       <el-menu-item index="1">处理中心</el-menu-item>
       <el-submenu index="2">
         <template slot="title">我的工作台</template>
@@ -10,13 +10,12 @@
       </el-submenu>
       <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
     </el-menu>
-    <div class="line"></div>
-  </div>
+  </el-row>
 </template>
 
 <script>
   export default {
-    name: 'header'
+    name: 'AppNav'
   }
 </script>
 

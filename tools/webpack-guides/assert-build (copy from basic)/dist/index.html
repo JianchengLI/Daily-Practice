@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <title>Asset Management</title>
+</head>
+
+<body>
+    <!-- 
+        在 webpack 出现之前，前端开发人员会使用 grunt 和 gulp 等工具来处理资源，并将它们从 /src 文件夹移动到 /dist 或 /build 目录中。同样方式也被用于 JavaScript 模块，
+        但是，像 webpack 这样的工具，将动态打包(dynamically bundle)所有依赖项（创建所谓的依赖图(dependency graph)）。
+        这是极好的创举，因为现在每个模块都可以_明确表述它自身的依赖，我们将避免打包未使用的模块。
+        
+        webpack 最出色的功能之一就是，除了 JavaScript，还可以通过 loader 引入任何其他类型的文件。
+     -->
+    <script src="bundle.js"></script>
+
+    <!-- 加载 CSS -->
+    <!-- 为了从 JavaScript 模块中 import 一个 CSS 文件，你需要在 module 配置中 安装并添加 style-loader 和 css-loader -->
+    <!-- npm install \-\-save-dev style-loader css-loader -->
+
+    <!-- 加载图片 -->
+    <!-- 假想，现在我们正在下载 CSS，但是我们的背景和图标这些图片，要如何处理呢？使用 file-loader，我们可以轻松地将这些内容混合到 CSS 中 -->
+    <!-- npm install \-\-save-dev file-loader -->
+</body>
+
+</html>
