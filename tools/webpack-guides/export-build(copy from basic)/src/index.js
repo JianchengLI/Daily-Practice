@@ -3,12 +3,19 @@
  */
 import _ from 'lodash'; // Solution
 import { GLOBAL_OTHER_VAR } from './other'; // Solution
+import print from './print';
 
 function component() {
     var element = document.createElement('div');
+    var btn = document.createElement('button');
 
     // Lodash（目前通过一个 script 脚本引入）对于执行这一行是必需的
     element.innerHTML = _.join(['Hello', 'webpack', ':', GLOBAL_OTHER_VAR], ' '); // Solution. Lodash, now imported by this script
+
+    btn.innerHTML = 'Click me and check the console!';
+    btn.onclick = print;
+    element.appendChild(btn);
+
     /**
      * Problem:
      * 使用这种方式去管理 JavaScript 项目会有一些问题：
