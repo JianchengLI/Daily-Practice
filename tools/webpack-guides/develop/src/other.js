@@ -1,0 +1,1 @@
+export var GLOBAL_OTHER_VAR = "a global var string";
