@@ -1,22 +1,21 @@
 /**
  * ES2015 中的 import 和 export 语句已经被标准化。虽然大多数浏览器还无法支持它们，但是 webpack 却能够提供开箱即用般的支持。
  */
-import _ from 'lodash'; // Solution
-import { GLOBAL_OTHER_VAR } from './other'; // Solution
-import print from './print';
+// import _ from 'lodash'; // Solution
+// import { GLOBAL_OTHER_VAR } from './other'; // Solution
+import cube from './math';
 
 function component() {
-    var element = document.createElement('div');
-    var btn = document.createElement('button');
+    // var element = document.createElement('div');
+    var element = document.createElement('pre');
+
+    element.innerHTML = [
+        'Hello webpack!',
+        '5 cubed is equal to ' + cube(5)
+    ].join('\n\n');
 
     // Lodash（目前通过一个 script 脚本引入）对于执行这一行是必需的
-    element.innerHTML = _.join(['Hello', 'webpack', ':', GLOBAL_OTHER_VAR], ' '); // Solution. Lodash, now imported by this script
-
-    btn.innerHTML = 'Click me and check the console!';
-    btn.onclick = print;
-    element.appendChild(btn);
-
-
+    // element.innerHTML = _.join(['Hello', 'webpack', ':', GLOBAL_OTHER_VAR], ' '); // Solution. Lodash, now imported by this script
     /**
      * Problem:
      * 使用这种方式去管理 JavaScript 项目会有一些问题：
@@ -33,10 +32,3 @@ function component() {
 }
 
 document.body.appendChild(component());
-
-if (module.hot) {
-    module.hot.accept('./print.js', function() {
-        console.log('Accepting the updated printMe module!');
-        printMe();
-    })
-}
